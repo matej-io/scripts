@@ -2,7 +2,6 @@
 
 import fs from 'fs';
 import path from 'path';
-import { exit } from 'process';
 import sharp from 'sharp';
 
 async function convertFiles() {

@@ -10,8 +10,12 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"fluent-ffmpeg": "^2.1.2",
 		"kebab-case": "^1.0.1",
 		"sharp": "^0.29.3"
 	},
-	"type": "module"
+	"type": "module",
+	"devDependencies": {
+		"@types/fluent-ffmpeg": "^2.1.20"
+	}
 }
