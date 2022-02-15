@@ -100,6 +100,7 @@ async function prepareGallery() {
 					thumb: `https://media.zenplus.uk/miranda/projects/${thumbPath}`,
 					caption: '',
 				});
+				i += 1;
 			}
 		}
 		const tsSource = toSource(data, undefined, '\t');
