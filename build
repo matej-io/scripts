@@ -3,8 +3,8 @@
 rm -rf bin
 node_modules/.bin/tsc
 for file in bin/*.js; do
-	newfile="${file%%.js}"
-   mv "$file" "$newfile"
-	chmod +x "$newfile"
-	echo "$newfile"
+	# newfile="${file%%.js}"
+   # mv "$file" "$newfile"
+	chmod +x "$file"
+	echo "$file"
 done
