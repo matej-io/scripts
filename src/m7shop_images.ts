@@ -32,7 +32,7 @@ async function run() {
 		fs.mkdirSync(fullDir);
 	}
 
-	const images = [];
+	const images: any[] = [];
 	const files = fs.readdirSync('.', { encoding: 'utf-8' });
 	let i = 1;
 	for (const file of files) {

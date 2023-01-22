@@ -4,10 +4,10 @@ import fs from 'fs';
 import path from 'path';
 import kebabCase from 'kebab-case';
 import sharp from 'sharp';
-import generateVideoThumbnail from './utils/generateVideoThumbnail.js';
-import encodeHLSVideo from './utils/encodeHLSVideo.js';
+import generateVideoThumbnail from './utils/generateVideoThumbnail';
+import encodeHLSVideo from './utils/encodeHLSVideo';
 import toSource from 'tosource';
-import getVideoTrackProps from './utils/getVideoProps.js';
+import getVideoTrackProps from './utils/getVideoProps';
 
 async function prepareGallery() {
 	try {
@@ -30,7 +30,7 @@ async function prepareGallery() {
 			thumbnail: `https://media.zenplus.uk/miranda/projects/${gallerySlug}/thumb.jpg`,
 			pageHref: `art/${gallerySlug}`,
 			bgColor: '#44608C',
-			slides: [],
+			slides: [] as any[],
 		};
 
 		if (

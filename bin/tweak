@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -12,17 +13,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fluent_ffmpeg_1 = __importDefault(require("fluent-ffmpeg"));
-const util_1 = require("util");
-function getVideoTrackProps(videoFile) {
+const fs_1 = __importDefault(require("fs"));
+const uuid_1 = require("uuid");
+function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        const ffprobe = (0, util_1.promisify)(fluent_ffmpeg_1.default.ffprobe);
-        const probeData = (yield ffprobe(videoFile));
-        const videoStream = probeData.streams.find((stream) => stream.codec_type === 'video');
-        if (!videoStream) {
-            throw 'missing video stream';
+        console.log('argv', process.argv[2]);
+        const names = fs_1.default.readFileSync(process.argv[2], 'utf-8').split('\n');
+        let csv = 'id,name\n';
+        for (const name of names) {
+            csv += `${(0, uuid_1.v4)().replace(/-/g, '')},${name}\n`;
         }
-        return videoStream;
+        fs_1.default.writeFileSync(process.argv[3], csv);
     });
 }
-exports.default = getVideoTrackProps;
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    }
+    catch (e) {
+        return false;
+    }
+    return true;
+}
+run();

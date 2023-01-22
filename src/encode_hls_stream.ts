@@ -16,7 +16,7 @@ async function encode_hls_stream() {
 		if (!outputHeight) {
 			throw '[param 3] output height not specified';
 		}
-		await encodeHLSStream();
+		await encodeHLSStream(videoFile, gallerySlug, outputHeight);
 	} catch (error) {
 		console.error('error:', error);
 	}

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -12,17 +13,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fluent_ffmpeg_1 = __importDefault(require("fluent-ffmpeg"));
-const util_1 = require("util");
-function getVideoTrackProps(videoFile) {
+const encodeHLSVideo_1 = __importDefault(require("./utils/encodeHLSVideo"));
+function encode_hls_video() {
     return __awaiter(this, void 0, void 0, function* () {
-        const ffprobe = (0, util_1.promisify)(fluent_ffmpeg_1.default.ffprobe);
-        const probeData = (yield ffprobe(videoFile));
-        const videoStream = probeData.streams.find((stream) => stream.codec_type === 'video');
-        if (!videoStream) {
-            throw 'missing video stream';
+        try {
+            const videoFile = process.argv[2];
+            if (!videoFile) {
+                throw '[param 1] video file not specified';
+            }
+            const gallerySlug = process.argv[3];
+            if (!gallerySlug) {
+                throw '[param 2] gallery slug not specified';
+            }
+            const outputHeights = process.argv[4]
+                .split(',')
+                .map((value) => parseInt(value));
+            if (outputHeights.length === 0 ||
+                outputHeights.find((value) => isNaN(value))) {
+                throw '[param 3] output heights not valid';
+            }
+            (0, encodeHLSVideo_1.default)(videoFile, gallerySlug, outputHeights);
         }
-        return videoStream;
+        catch (error) {
+            console.error('error:', error);
+        }
     });
 }
-exports.default = getVideoTrackProps;
+encode_hls_video();
