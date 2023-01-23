@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,11 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const encodeHLSStream_1 = __importDefault(require("./utils/encodeHLSStream"));
+import encodeHLSStream from './utils/encodeHLSStream';
 function encode_hls_stream() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -29,7 +24,7 @@ function encode_hls_stream() {
             if (!outputHeight) {
                 throw '[param 3] output height not specified';
             }
-            yield (0, encodeHLSStream_1.default)(videoFile, gallerySlug, outputHeight);
+            yield encodeHLSStream(videoFile, gallerySlug, outputHeight);
         }
         catch (error) {
             console.error('error:', error);

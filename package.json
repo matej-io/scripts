@@ -6,10 +6,12 @@
 	"scripts": {
 		"build": "./build"
 	},
+	"type": "module",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@types/node-fetch": "^2.6.2",
 		"commander": "^10.0.0",
 		"fluent-ffmpeg": "^2.1.2",
 		"kebab-case": "^1.0.1",

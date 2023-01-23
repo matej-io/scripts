@@ -1,12 +1,7 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const fluent_ffmpeg_1 = __importDefault(require("fluent-ffmpeg"));
-function generateVideoThumbnail(videoPath, outPath) {
+import Ffmpeg from 'fluent-ffmpeg';
+export default function generateVideoThumbnail(videoPath, outPath) {
     return new Promise((resolve, reject) => {
-        const ffmpeg = (0, fluent_ffmpeg_1.default)();
+        const ffmpeg = Ffmpeg();
         ffmpeg.addInput(videoPath);
         ffmpeg.addOutputOption(`-vf select='eq(n,0)',scale=-1:720`);
         ffmpeg.addOutputOption(`-vframes 1`);
@@ -26,4 +21,3 @@ function generateVideoThumbnail(videoPath, outPath) {
         ffmpeg.run();
     });
 }
-exports.default = generateVideoThumbnail;
