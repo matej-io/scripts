@@ -6,7 +6,6 @@
 	"scripts": {
 		"build": "./build"
 	},
-	"type": "module",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",

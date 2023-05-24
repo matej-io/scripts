@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
-const program = new Command();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const commander_1 = require("commander");
+const program = new commander_1.Command();
 program
     .description('Test commander script')
     .version('1.0.0', '-v, --version')
