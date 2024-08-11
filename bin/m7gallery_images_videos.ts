@@ -1,13 +1,13 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-strip-types --no-warnings
 
 import fs from 'fs';
 import path from 'path';
 import kebabCase from 'kebab-case';
 import sharp from 'sharp';
-import generateVideoThumbnail from './utils/generateVideoThumbnail';
-import encodeHLSVideo from './utils/encodeHLSVideo';
+import generateVideoThumbnail from './utils/generateVideoThumbnail.ts';
+import encodeHLSVideo from './utils/encodeHLSVideo.ts';
 import toSource from 'tosource';
-import getVideoTrackProps from './utils/getVideoProps';
+import getVideoTrackProps from './utils/getVideoProps.ts';
 
 async function prepareGallery() {
 	try {

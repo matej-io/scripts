@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import encodeHLSStream from './encodeHLSStream';
+import encodeHLSStream from './encodeHLSStream.ts';
 
 export default async function encodeHLSVideo(
 	videoFile: string,

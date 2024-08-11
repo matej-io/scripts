@@ -1,7 +1,7 @@
 import Ffmpeg from 'fluent-ffmpeg';
 import path from 'path';
 import fs from 'fs';
-import getVideoTrackProps from './getVideoProps';
+import getVideoTrackProps from './getVideoProps.ts';
 
 export default async function encodeHLSStream(
 	videoFile: string,

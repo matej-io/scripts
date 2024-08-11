@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-strip-types --no-warnings
 
-import encodeHLSVideo from './utils/encodeHLSVideo';
+import encodeHLSVideo from './utils/encodeHLSVideo.ts';
 
 async function encode_hls_video() {
 	try {

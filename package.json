@@ -3,9 +3,8 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"scripts": {
-		"build": "./build"
-	},
+	"type": "module",
+	"scripts": {},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
@@ -16,7 +15,9 @@
 		"kebab-case": "^1.0.1",
 		"sharp": "^0.29.3",
 		"tosource": "^2.0.0-alpha.3",
-		"uuid": "^8.3.2"
+		"uuid": "^8.3.2",
+		"uuid25": "^0.1.5",
+		"uuidv7": "^1.0.1"
 	},
 	"devDependencies": {
 		"@types/fluent-ffmpeg": "^2.1.20",

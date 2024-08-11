@@ -1,6 +1,6 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --experimental-strip-types --no-warnings
 
-import encodeHLSStream from './utils/encodeHLSStream';
+import encodeHLSStream from './utils/encodeHLSStream.ts';
 
 async function encode_hls_stream() {
 	try {
